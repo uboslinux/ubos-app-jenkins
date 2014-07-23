@@ -1,0 +1,48 @@
+developer=http://jenkins-ci.org/
+maintainer=http://indiebox.net/
+pkgname=$(basename $(pwd))
+pkgver=1.554.3
+pkgrel=1
+pkgdesc="An extendable open source continuous integration server"
+arch=('any')
+url=${developer}
+license=("MIT")
+groups=()
+depends=()
+backup=()
+source=("http://mirrors.jenkins-ci.org/war-stable/${pkgver}/jenkins.war")
+options=('!strip')
+md5sums=('f47c14c91d88ad2e25e8bdf1c1a73404')
+# from http://stackoverflow.com/questions/1251999/sed-how-can-i-replace-a-newline-n
+_parameterize=$(cat <<END
+    s!##pkgname##!$pkgname!g;
+    s/##pkgdesc##/$pkgdesc/g;
+    s!##developer##!$developer!g;
+    s!##maintainer##!$maintainer!g;
+    s!##pkgver##!$pkgver!g;
+    s!##pkgrel##!$pkgrel!g;
+    s!##license##!$license!g;
+    s!##description##!$description!g;
+END
+)
+
+package() {
+# Manifest
+    mkdir -p $pkgdir/var/lib/indiebox/manifests
+    perl -pe "$_parameterize" $startdir/indiebox-manifest.json > $pkgdir/var/lib/indiebox/manifests/${pkgname}.json
+    chmod 0644 $pkgdir/var/lib/indiebox/manifests/${pkgname}.json
+
+# Icons
+    mkdir -p $pkgdir/srv/http/_appicons/$pkgname
+    # install -m644 $startdir/appicons/{72x72,144x144}.png $pkgdir/srv/http/_appicons/$pkgname/
+
+# Templates
+    mkdir -p $pkgdir/usr/share/${pkgname}/tmpl
+    install $startdir/tmpl/{context.xml.tmpl,htaccess.tmpl} $pkgdir/usr/share/${pkgname}/tmpl/
+
+# Code
+    mkdir -p $pkgdir/usr/share/${pkgname}/lib
+    install $startdir/jenkins.war $pkgdir/usr/share/${pkgname}/lib
+    mkdir -p $pkgdir/usr/share/${pkgname}/bin
+    install $startdir/bin/move-plugins-dir.pl $pkgdir/usr/share/${pkgname}/bin
+}

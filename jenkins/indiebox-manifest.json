@@ -1,0 +1,69 @@
+{
+    "type" : "app",
+
+    "info" : {
+        "package"         : "##pkgname##",
+        "name"            : "Jenkins",
+        "tagline"         : "##pkgdesc##",
+        "description"     : "<p>##pkgdesc##</p>",
+        "developer"       : "##developer##",
+        "maintainer"      : "##maintainer##",
+
+        "upstreamversion" : "##pkgver##",
+        "packageversion"  : "##pkgver##-##pkgrel##",
+
+        "licenses" : [
+            "##license##"
+        ]
+    },
+
+    "roles" : {
+        "apache2" : {
+            "defaultcontext" : "/jenkins",
+            "apache2modules" : [
+                "proxy",
+                "proxy_ajp"
+            ],
+            "appconfigitems" : [
+                {
+                    "type" : "file",
+                    "name" : "${appconfig.apache2.appconfigfragmentfile}",
+                    "template"     : "tmpl/htaccess.tmpl",
+                    "templatelang" : "varsubst"
+                }
+            ]
+        },
+        "tomcat7" : {
+            "defaultcontext" : "/jenkins",
+            "appconfigitems" : [
+                {
+                    "type"         : "file",
+                    "name"         : "${appconfig.tomcat7.contextfile}",
+                    "template"     : "tmpl/context.xml.tmpl",
+                    "templatelang" : "varsubst"
+                },
+                {
+                    "type" : "directory",
+                    "name" : "jenkins-home",
+                    "retentionpolicy" : "keep",
+                    "retentionbucket" : "jenkins-home",
+                    "mode" : "0755",
+                    "uname" : "${tomcat7.uname}",
+                    "gname" : "${tomcat7.gname}"
+                },
+                {
+                    "type" : "directory",
+                    "name" : "jenkins-plugins",
+                    "mode" : "0755",
+                    "uname" : "${tomcat7.uname}",
+                    "gname" : "${tomcat7.gname}"
+                },
+                {
+                    "type" : "perlscript",
+                    "source" : "bin/move-plugins-dir.pl"
+                }
+            ]
+        }
+    }
+}
+

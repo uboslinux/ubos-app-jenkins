@@ -1,0 +1,43 @@
+developer=http://jenkins-ci.org/
+maintainer=http://indiebox.net/
+_plugin=scm-api
+pkgname=$(basename $(pwd))
+pkgver=0.2
+pkgrel=2
+pkgdesc="A new enhanced API for interacting with SCM systems."
+arch=('any')
+url=${developer}
+license=("MIT")
+groups=()
+depends=('git')
+backup=()
+source=("http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
+options=('!strip')
+md5sums=('9574c07bf6bfd02a57b451145c870f0e')
+# from http://stackoverflow.com/questions/1251999/sed-how-can-i-replace-a-newline-n
+_parameterize=$(cat <<END
+    s!##pkgname##!$pkgname!g;
+    s/##pkgdesc##/$pkgdesc/g;
+    s!##developer##!$_developer!g;
+    s!##maintainer##!$_maintainer!g;
+    s!##pkgver##!$pkgver!g;
+    s!##pkgrel##!$pkgrel!g;
+    s!##license##!$_license!g;
+    s!##description##!$description!g;
+END
+)
+
+package() {
+# Manifest
+    mkdir -p $pkgdir/var/lib/indiebox/manifests
+    perl -pe "$_parameterize" $startdir/indiebox-manifest.json > $pkgdir/var/lib/indiebox/manifests/${pkgname}.json
+    chmod 0644 $pkgdir/var/lib/indiebox/manifests/${pkgname}.json
+
+# Icons
+    # mkdir -p $pkgdir/srv/http/_appicons/$pkgname
+    # install -m644 $startdir/appicons/{72x72,144x144}.png $pkgdir/srv/http/_appicons/$pkgname/
+
+# Source
+    mkdir -p $pkgdir/usr/share/${pkgname}
+    cp -a $startdir/src/${_plugin}.hpi $pkgdir/usr/share/${pkgname}/
+}

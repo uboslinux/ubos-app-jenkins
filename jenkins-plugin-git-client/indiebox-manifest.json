@@ -1,0 +1,34 @@
+{
+    "type"  : "accessory",
+    "appid" : "jenkins",
+
+    "info" : {
+        "package"         : "##pkgname##",
+        "name"            : "Git Client",
+        "tagline"         : "##pkgdesc##",
+        "description"     : "##description##",
+
+        "developer"       : "##developer##",
+        "maintainer"      : "##maintainer##",
+
+        "upstreamversion" : "##pkgver##",
+        "packageversion"  : "##pkgver##-##pkgrel##",
+
+        "licenses" : [
+            "##license##"
+        ]
+    },
+
+    "roles" : {
+        "tomcat7" : {
+            "appconfigitems" : [
+                {
+                    "type"   : "file",
+                    "name"   : "jenkins-plugins/git-client.hpi",
+                    "source" : "git-client.hpi",
+                }
+            ]
+        }
+    }
+}
+
