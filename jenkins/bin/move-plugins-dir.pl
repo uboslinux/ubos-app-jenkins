@@ -5,8 +5,8 @@
 
 use strict;
 
-use IndieBox::Logging;
-use IndieBox::Utils;
+use UBOS::Logging;
+use UBOS::Utils;
 
 my $ret  = 1;
 my $dir  = $config->getResolveOrNull( 'appconfig.tomcat7.dir' );
@@ -17,23 +17,23 @@ my $newPlugins = "$dir/jenkins-plugins";
 if( 'install' eq $operation ) {
     if( -e $oldPlugins ) {
         if( -d $oldPlugins ) {
-            IndieBox::Utils::myexec( "mv $oldPlugins/* $newPlugins/" );
-            unless( IndieBox::Utils::rmdir( $oldPlugins )) {
+            UBOS::Utils::myexec( "mv $oldPlugins/* $newPlugins/" );
+            unless( UBOS::Utils::rmdir( $oldPlugins )) {
                 error( 'Plugins directory could not be removed: ', $oldPlugins );
             }
         } else {
-            unless( IndieBox::Utils::deleteFile( $oldPlugins )) {
+            unless( UBOS::Utils::deleteFile( $oldPlugins )) {
                 error( 'Plugins file/symlink could not be removed: ', $oldPlugins );
             }
         }
     }
-    unless( IndieBox::Utils::symlink( $newPlugins, $oldPlugins )) {
+    unless( UBOS::Utils::symlink( $newPlugins, $oldPlugins )) {
         error( 'Symlink could not be created:', $newPlugins, $oldPlugins );
     }
 }
 if( 'uninstall' eq $operation ) {
     if( -e $oldPlugins ) {
-        unless( IndieBox::Utils::deleteFile( $oldPlugins )) {
+        unless( UBOS::Utils::deleteFile( $oldPlugins )) {
             error( 'Plugins symlink could not be removed: ', $oldPlugins );
         }
     }

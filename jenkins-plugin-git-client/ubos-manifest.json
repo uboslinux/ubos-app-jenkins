@@ -1,0 +1,21 @@
+{
+    "type"  : "accessory",
+
+    "accessoryinfo" : {
+        "appid"         : "jenkins",
+        "accessoryid"   : "git-client"
+    },
+
+    "roles" : {
+        "tomcat7" : {
+            "appconfigitems" : [
+                {
+                    "type"   : "file",
+                    "name"   : "jenkins-plugins/git-client.hpi",
+                    "source" : "git-client.hpi",
+                }
+            ]
+        }
+    }
+}
+

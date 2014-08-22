@@ -1,0 +1,21 @@
+{
+    "type"  : "accessory",
+
+    "accessoryinfo" : {
+        "appid"         : "jenkins",
+        "accessoryid"   : "scm-api"
+    },
+
+    "roles" : {
+        "tomcat7" : {
+            "appconfigitems" : [
+                {
+                    "type"   : "file",
+                    "name"   : "jenkins-plugins/scm-api.hpi",
+                    "source" : "scm-api.hpi",
+                }
+            ]
+        }
+    }
+}
+
