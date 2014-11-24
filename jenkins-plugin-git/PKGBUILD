@@ -3,15 +3,15 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 _plugin=git
 pkgname=$(basename $(pwd))
-pkgver=2.2.2
-pkgrel=4
+pkgver=2.3
+pkgrel=1
 pkgdesc="Allows use of Git as a build SCM"
 arch=('any')
 license=("MIT")
 depends=('git')
 source=("http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
 options=('!strip')
-md5sums=('300085c2cf987be456c4bc876b6cb536')
+md5sums=('7e50abfd17886a66bb2f3b1b1a6760b5')
 
 package() {
 # Manifest
