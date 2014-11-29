@@ -4,12 +4,12 @@ maintainer=http://indiecomputing.com/
 _plugin=git-client
 pkgname=$(basename $(pwd))
 pkgver=1.11.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Shared library plugin for other Git related Jenkins plugins."
 arch=('any')
 license=("MIT")
 depends=('git')
-source=("http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
+source=("${_plugin}_${pkgver}.hpi::http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
 options=('!strip')
 md5sums=('846c088f713ef681cf35d70653be0f84')
 

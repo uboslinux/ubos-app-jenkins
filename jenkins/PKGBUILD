@@ -3,11 +3,11 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 pkgver=1.580.1
-pkgrel=1
+pkgrel=2
 pkgdesc="An extendable open source continuous integration server"
 arch=('any')
 license=("MIT")
-source=("http://mirrors.jenkins-ci.org/war-stable/${pkgver}/jenkins.war")
+source=("jenkins_${pkgver}.war::http://mirrors.jenkins-ci.org/war-stable/${pkgver}/jenkins.war")
 options=('!strip')
 md5sums=('8506484adbe1d51885585782302426b5')
 

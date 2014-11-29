@@ -4,12 +4,12 @@ maintainer=http://indiecomputing.com/
 _plugin=scm-api
 pkgname=$(basename $(pwd))
 pkgver=0.2
-pkgrel=5
+pkgrel=6
 pkgdesc="A new enhanced API for interacting with SCM systems."
 arch=('any')
 license=("MIT")
 depends=('git')
-source=("http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
+source=("${_plugin}_${pkgver}.hpi::http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
 options=('!strip')
 md5sums=('9574c07bf6bfd02a57b451145c870f0e')
 
