@@ -13,20 +13,20 @@ md5sums=('8506484adbe1d51885585782302426b5')
 
 package() {
 # Manifest
-    mkdir -p $pkgdir/var/lib/ubos/manifests
-    install -m0644 $startdir/ubos-manifest.json $pkgdir/var/lib/ubos/manifests/${pkgname}.json
+    mkdir -p ${pkgdir}/var/lib/ubos/manifests
+    install -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/var/lib/ubos/manifests/${pkgname}.json
 
 # Icons
-    mkdir -p $pkgdir/srv/http/_appicons/$pkgname
-    # install -m644 $startdir/appicons/{72x72,144x144}.png $pkgdir/srv/http/_appicons/$pkgname/
+    mkdir -p ${pkgdir}/srv/http/_appicons/$pkgname
+    # install -m644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/srv/http/_appicons/$pkgname/
 
 # Templates
-    mkdir -p $pkgdir/usr/share/${pkgname}/tmpl
-    install $startdir/tmpl/{context.xml.tmpl,htaccess.tmpl} $pkgdir/usr/share/${pkgname}/tmpl/
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/tmpl
+    install ${startdir}/tmpl/{context.xml.tmpl,htaccess.tmpl} ${pkgdir}/usr/share/${pkgname}/tmpl/
 
 # Code
-    mkdir -p $pkgdir/usr/share/${pkgname}/lib
-    install $startdir/jenkins.war $pkgdir/usr/share/${pkgname}/lib
-    mkdir -p $pkgdir/usr/share/${pkgname}/bin
-    install $startdir/bin/move-plugins-dir.pl $pkgdir/usr/share/${pkgname}/bin
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/lib
+    install ${startdir}/jenkins_${pkgver}.war ${pkgdir}/usr/share/${pkgname}/lib
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/bin
+    install ${startdir}/bin/move-plugins-dir.pl ${pkgdir}/usr/share/${pkgname}/bin
 }

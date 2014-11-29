@@ -24,5 +24,5 @@ package() {
 
 # Source
     mkdir -p $pkgdir/usr/share/${pkgname}
-    install -m644 $startdir/src/${_plugin}.hpi $pkgdir/usr/share/${pkgname}/
+    install -m644 ${startdir}/src/${_plugin}_${pkgver}.hpi ${pkgdir}/usr/share/${pkgname}/${_plugin}.hpi
 }
