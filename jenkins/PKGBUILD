@@ -3,7 +3,7 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 pkgver=1.580.1
-pkgrel=2
+pkgrel=3
 pkgdesc="An extendable open source continuous integration server"
 arch=('any')
 license=("MIT")
@@ -26,7 +26,7 @@ package() {
 
 # Code
     mkdir -p ${pkgdir}/usr/share/${pkgname}/lib
-    install ${startdir}/jenkins_${pkgver}.war ${pkgdir}/usr/share/${pkgname}/lib
+    install ${startdir}/jenkins_${pkgver}.war ${pkgdir}/usr/share/${pkgname}/lib/jenkins.war
     mkdir -p ${pkgdir}/usr/share/${pkgname}/bin
     install ${startdir}/bin/move-plugins-dir.pl ${pkgdir}/usr/share/${pkgname}/bin
 }
