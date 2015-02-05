@@ -11,7 +11,7 @@ license=("MIT")
 depends=('git')
 source=("${_plugin}_${pkgver}.hpi::http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
 options=('!strip')
-md5sums=('7e50abfd17886a66bb2f3b1b1a6760b5')
+md5sums=('e3ead2aa0ba8b7666566e0e3dea964e3')
 
 package() {
 # Manifest
