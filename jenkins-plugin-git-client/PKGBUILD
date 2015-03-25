@@ -3,7 +3,7 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 _plugin=git-client
 pkgname=$(basename $(pwd))
-pkgver=1.15.0
+pkgver=1.16.1
 pkgrel=1
 pkgdesc="Shared library plugin for other Git related Jenkins plugins."
 arch=('any')
@@ -11,7 +11,7 @@ license=("MIT")
 depends=('git')
 source=("${_plugin}_${pkgver}.hpi::http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
 options=('!strip')
-md5sums=('dbf4ded37e9860841ae34d7cdd8d2dad')
+md5sums=('5331dd9f233228bca6486f51e21bf6ac')
 
 package() {
 # Manifest
