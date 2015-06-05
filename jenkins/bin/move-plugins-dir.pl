@@ -9,7 +9,7 @@ use UBOS::Logging;
 use UBOS::Utils;
 
 my $ret  = 1;
-my $dir  = $config->getResolveOrNull( 'appconfig.tomcat7.dir' );
+my $dir  = $config->getResolveOrNull( 'appconfig.tomcat8.dir' );
 my $home = "$dir/jenkins-home";
 my $oldPlugins = "$home/plugins";
 my $newPlugins = "$dir/jenkins-plugins";

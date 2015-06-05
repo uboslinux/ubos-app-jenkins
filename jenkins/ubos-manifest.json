@@ -17,7 +17,7 @@
                 }
             ]
         },
-        "tomcat7" : {
+        "tomcat8" : {
             "defaultcontext" : "/jenkins",
             "depends" : [
                 "libcups",
@@ -27,7 +27,7 @@
             "appconfigitems" : [
                 {
                     "type"         : "file",
-                    "name"         : "${appconfig.tomcat7.contextfile}",
+                    "name"         : "${appconfig.tomcat8.contextfile}",
                     "template"     : "tmpl/context.xml.tmpl",
                     "templatelang" : "varsubst"
                 },
@@ -37,15 +37,15 @@
                     "retentionpolicy" : "keep",
                     "retentionbucket" : "jenkins-home",
                     "mode" : "0755",
-                    "uname" : "${tomcat7.uname}",
-                    "gname" : "${tomcat7.gname}"
+                    "uname" : "${tomcat8.uname}",
+                    "gname" : "${tomcat8.gname}"
                 },
                 {
                     "type" : "directory",
                     "name" : "jenkins-plugins",
                     "mode" : "0755",
-                    "uname" : "${tomcat7.uname}",
-                    "gname" : "${tomcat7.gname}"
+                    "uname" : "${tomcat8.uname}",
+                    "gname" : "${tomcat8.gname}"
                 },
                 {
                     "type" : "perlscript",

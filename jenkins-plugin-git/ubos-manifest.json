@@ -7,7 +7,7 @@
     },
 
     "roles" : {
-        "tomcat7" : {
+        "tomcat8" : {
             "appconfigitems" : [
                 {
                     "type"   : "file",
