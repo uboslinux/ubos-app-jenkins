@@ -14,7 +14,7 @@ my $home = "$dir/jenkins-home";
 my $oldPlugins = "$home/plugins";
 my $newPlugins = "$dir/jenkins-plugins";
 
-if( 'install' eq $operation ) {
+if( 'deploy' eq $operation ) {
     if( -e $oldPlugins ) {
         if( -d $oldPlugins ) {
             UBOS::Utils::myexec( "mv $oldPlugins/* $newPlugins/" );
@@ -31,7 +31,7 @@ if( 'install' eq $operation ) {
         error( 'Symlink could not be created:', $newPlugins, $oldPlugins );
     }
 }
-if( 'uninstall' eq $operation ) {
+if( 'undeploy' eq $operation ) {
     if( -e $oldPlugins ) {
         unless( UBOS::Utils::deleteFile( $oldPlugins )) {
             error( 'Plugins symlink could not be removed: ', $oldPlugins );
