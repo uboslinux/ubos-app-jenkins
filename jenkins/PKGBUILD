@@ -2,14 +2,14 @@ developer=http://jenkins-ci.org/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=1.609.1
-pkgrel=2
+pkgver=1.625.1
+pkgrel=1
 pkgdesc="An extendable open source continuous integration server"
 arch=('any')
 license=("MIT")
 source=("jenkins_${pkgver}.war::http://mirrors.jenkins-ci.org/war-stable/${pkgver}/jenkins.war")
 options=('!strip')
-sha512sums=('909496a0b3757c8187cf9bad6374ea4faf57979eafcd91d9793d57bcc3bfc7e821755fbc321a104b14acc2ddbd319c30e40cc52fb0456eeea4ad2f23d9d6ae1c')
+sha512sums=('b05710ffe195476fa22ca2dd226148755310ee17527c0294a0251414bbb085860fd40ec485ce53a4446d36bfaa908f3a4b828e1772d590433120ec3668c239d9')
 
 package() {
 # Manifest
