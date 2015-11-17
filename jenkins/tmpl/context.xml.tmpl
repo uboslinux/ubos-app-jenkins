@@ -3,10 +3,5 @@
          antiResourceLocking="true"
          docBase="${package.codedir}/lib/jenkins.war">
   <Environment name="JENKINS_HOME" value="${appconfig.tomcat8.dir}/jenkins-home" type="java.lang.String"/>
-  <!--
-      This does not actually work: Tomcat does not set environment variables,
-      but puts it into some hash that can be queried, but Jenkins doesn't
-      do that (yet?)
-  <Environment name="hudson.DNSMultiCast.disabled" value="true" type="java.lang.Boolean" override="false"/>
-  -->
+  <Parameter   name="hudson.DNSMultiCast.disabled" value="true" override="false"/>
 </Context>
