@@ -10,6 +10,7 @@ arch=('any')
 license=("MIT")
 depends=('git')
 source=("${_plugin}_${pkgver}.hpi::http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
+releasepage=('https://plugins.jenkins.io/scm-api')
 options=('!strip')
 md5sums=('9574c07bf6bfd02a57b451145c870f0e')
 

@@ -10,6 +10,7 @@ arch=('any')
 license=("MIT")
 depends=('git')
 source=("${_plugin}_${pkgver}.hpi::http://updates.jenkins-ci.org/download/plugins/${_plugin}/${pkgver}/${_plugin}.hpi")
+releasepage=('https://plugins.jenkins.io/git-client')
 options=('!strip')
 sha512sums=('0d500cd255385cf5a753d45fae7b05646444f0932147e58be1a09570305ba4146575e61b225a1af5cca94b410ac0aa476f3265ab271949528ff23f3f52f88df6')
 
