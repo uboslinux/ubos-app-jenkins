@@ -13,6 +13,7 @@ releasepage=('https://jenkins.io/download/')
 options=('!strip')
 sha512sums=('SKIP')
 conflicts=('jenkins')
+makedepends=('maven')
 
 build() {
     cd ${srcdir}/jenkins
